@@ -22,6 +22,7 @@ public class ClientRepo : IntClientRepo
 
     public void Insert(Client client)
     {
+        client.Id = _clients.Count;
         _clients.Add(client);
     }
 

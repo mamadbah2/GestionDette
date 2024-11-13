@@ -1,12 +1,11 @@
 using GestionDette.Model;
+using GestionDette.Core;
+
+
 
 namespace GestionDette.Repository;
 
-public interface IntDetteRepo
+public interface IntDetteRepo : IRepository <Dette>
 {
-    List<Dette> SelectAll();
-    Dette? SelectById(int id);
-    void Delete(Dette dette);
-    void Update(Dette dette);
-    void Insert(Dette dette);
+    
 }

@@ -4,10 +4,8 @@ public class Client
 {
     public int Id { get; set; }
     public string Name { get; set; }
-    
     public string Telephone { get; set; }
     public string Address { get; set; }
-
     public string Email { get; set; }
 
     public Client() {}
@@ -18,11 +16,17 @@ public class Client
         Address = address;
         Email = email;
     }
-    public IEnumerable<Dette> Dettes { get; } = new List<Dette>();
+    public List<Dette> Dettes { get; } = new ();
 
     public void AddDette(Dette dette)
     {
-        Dettes.Append(dette);
+        Dettes.Add(dette);
         dette.Client = this;
+    }
+
+    public override string ToString()
+    {
+        return $"{Id}. {Name} - {Telephone} - {Address} - {Email} - {Dettes.Count()} Dettes";
+        
     }
 }

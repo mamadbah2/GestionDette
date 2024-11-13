@@ -23,6 +23,7 @@ public class DetteRepo : IntDetteRepo
 
     public void Insert(Dette dette)
     {
+        dette.Id = _dettes.Count + 1;
         _dettes.Add(dette);
     }
 

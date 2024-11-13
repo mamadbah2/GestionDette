@@ -34,6 +34,10 @@ internal class Program
                case 4:
                    clientView.ShowClients(clientServ.GetClients());
                    break;
+               case 5:
+                   clientView.ShowClients(clientServ.GetClients());
+                   clientView.ShowDettesClient(clientServ.GetClientById(clientView.EnterId())!);
+                   break;
                case 0:
                    break;
                    
@@ -46,17 +50,17 @@ internal class Program
         int choice;
         do
         {
-            Console.Clear();
             Console.WriteLine("Gestion dette");
-            Console.WriteLine("1. Creer un Etudiant");
-            Console.WriteLine("2. Modifer un Etudiant");
-            Console.WriteLine("3. Supprimer un Etudiant");
-            Console.WriteLine("4. Afficher tous les Etudiants");
+            Console.WriteLine("1. Creer un Client");
+            Console.WriteLine("2. Modifer un Client");
+            Console.WriteLine("3. Supprimer un Client");
+            Console.WriteLine("4. Afficher tous les Clients");
+            Console.WriteLine("5. Afficher les dettes d'un Client");
             Console.WriteLine("0. Quitter");
             
-            Console.WriteLine("Quel choix : ");
+            Console.Write("Quel choix : ");
             choice = Convert.ToInt32(Console.ReadLine());
-            
+            Console.Clear();
         } while(choice > 5 || choice < 0);
 
         return choice;

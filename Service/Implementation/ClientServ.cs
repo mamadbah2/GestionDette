@@ -12,7 +12,7 @@ public class ClientServ : IntClientServ
         return _repository.SelectAll();
     }
 
-    public Client GetClientById(int id)
+    public Client? GetClientById(int id)
     {
         return _repository.SelectById(id);
     }

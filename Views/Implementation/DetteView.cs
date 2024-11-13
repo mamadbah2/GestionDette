@@ -8,7 +8,7 @@ public class DetteView : IntDetteView
     {
         foreach (var dette in dettes)
         {
-            Console.WriteLine(dette);
+            Console.WriteLine(dette.ToString());
         }
     }
 }

@@ -8,7 +8,23 @@ public class ClientView : IntClientView
     {
         foreach (var client in clients)
         {
-            Console.WriteLine(client);
+            Console.WriteLine(client.ToString());
+        }
+    }
+
+    public int EnterId()
+    {
+        Console.Write("Saisir Id : ");
+        int id = int.Parse(Console.ReadLine()!);
+        return id;
+    }
+
+    public void ShowDettesClient(Client client)
+    {
+        Console.WriteLine(client.ToString());
+        foreach (var dette in client.Dettes)
+        {
+            Console.WriteLine(dette.ToString());
         }
     }
 
@@ -19,26 +35,26 @@ public class ClientView : IntClientView
         string name = Console.ReadLine()!;
         Console.Write("Enter telephone number: ");
         string phone = Console.ReadLine()!;
+        Console.Write("Enter your mail : ");
+        string mail = Console.ReadLine()!;
         Console.Write("Enter address: ");
         string address = Console.ReadLine()!;
-        Console.Write("Enter your mail");
-        string mail = Console.ReadLine()!;
-            Console.Write("Would you append a debt : [Y/N]?");
-            string answer = Console.ReadLine()!.ToUpper();
-            Client client = new (name, phone, address, mail);
-            if (answer.Equals("Y"))
+        Console.Write("Would you append a debt : [Y/N]?");
+        string answer = Console.ReadLine()!.ToUpper();
+        Client client = new (name, phone, address, mail);
+        if (answer.Equals("Y"))
+        {
+            do
             {
-                do
-                {
-                    Console.Write("Enter amount of debt : ");
-                    float amount = float.Parse(Console.ReadLine()!);
-                    Dette dette = new Dette();
-                    dette.Montant = amount;
-                    client.AddDette(dette);
-                    Console.Write("Would you append a debt : [Y/N]?");
-                    answer = Console.ReadLine()!.ToUpper();
-                } while (answer.Equals("Y"));
-            }
+                Console.Write("Enter amount of debt : ");
+                float amount = float.Parse(Console.ReadLine()!);
+                Dette dette = new Dette();
+                dette.Montant = amount;
+                client.AddDette(dette);
+                Console.Write("Would you append a debt : [Y/N]?");
+                answer = Console.ReadLine()!.ToUpper();
+            } while (answer.Equals("Y"));
+        }
 
         return client;
     }
@@ -49,4 +65,6 @@ public class ClientView : IntClientView
         int id = int.Parse(Console.ReadLine()!);
         return id;
     }
+    
+    
 }
