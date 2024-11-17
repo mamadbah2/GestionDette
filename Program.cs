@@ -12,6 +12,7 @@ internal class Program
 {
     public static void Main(string[] args)
     {
+        DotNetEnv.Env.Load();
         IntClientView clientView = new ClientView();
         IntClientServ clientServ = new ClientServ();
         
